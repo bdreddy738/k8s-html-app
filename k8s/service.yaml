@@ -1,16 +1,29 @@
+# Kubernetes Service API version
 apiVersion: v1
+
+# Resource type
 kind: Service
 
 metadata:
+  # Service name
   name: reddy-nginx-service
 
 spec:
+
+  # Expose service outside cluster
   type: NodePort
 
+  # Route traffic to pods with this label
   selector:
     app: reddy-nginx
 
   ports:
+
+  # Service port configuration
   - port: 80
+
+    # Forward traffic to container port
     targetPort: 80
+
+    # Fixed external node port
     nodePort: 30080

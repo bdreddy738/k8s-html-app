@@ -1,48 +1,82 @@
+# Kubernetes Deployment API version
 apiVersion: apps/v1
+
+# Resource type
 kind: Deployment
 
 metadata:
+  # Deployment name
   name: reddy-nginx
 
 spec:
+  # Number of pod replicas
   replicas: 2
 
+  # Deployment uses this label selector
   selector:
     matchLabels:
       app: reddy-nginx
 
+  # Pod template definition
   template:
+
     metadata:
+      # Labels attached to pods
       labels:
         app: reddy-nginx
 
     spec:
-      containers:
-      - name: reddy-nginx
-        image: reddy-nginx:v4
 
+      # Container definitions
+      containers:
+
+      # Container name
+      - name: reddy-nginx
+
+        # Docker image used by Kubernetes
+        image: reddy-nginx:v5
+
+        # Container exposed ports
         ports:
         - containerPort: 80
 
+        # Resource requests and limits
         resources:
+
+          # Minimum guaranteed resources
           requests:
             memory: "64Mi"
             cpu: "100m"
 
+          # Maximum allowed resources
           limits:
             memory: "128Mi"
             cpu: "200m"
 
+        # Liveness probe checks whether app is alive
         livenessProbe:
+
+          # HTTP health check
           httpGet:
             path: /
             port: 80
+
+          # Wait before first check
           initialDelaySeconds: 5
+
+          # Check every 10 seconds
           periodSeconds: 10
 
+        # Readiness probe checks whether pod is ready for traffic
         readinessProbe:
+
+          # HTTP readiness check
           httpGet:
             path: /
             port: 80
+
+          # Wait before first readiness check
           initialDelaySeconds: 5
+
+          # Check every 5 seconds
           periodSeconds: 5
