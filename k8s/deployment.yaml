@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: apps/v3
 kind: Deployment
 
 metadata:
@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: reddy-nginx
-        image: reddy-nginx:v2
+        image: reddy-nginx:v3
 
         ports:
         - containerPort: 80
