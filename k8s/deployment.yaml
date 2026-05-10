@@ -34,7 +34,7 @@ spec:
       - name: reddy-nginx
 
         # Docker image used by Kubernetes
-        image: reddy-nginx:v5
+        image: reddy-nginx:v6
 
         # Container exposed ports
         ports:
