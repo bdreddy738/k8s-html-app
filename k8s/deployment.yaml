@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: reddy-nginx
-        image: reddy-nginx:v1
+        image: reddy-nginx:v2
 
         ports:
         - containerPort: 80
