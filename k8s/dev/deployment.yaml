@@ -8,9 +8,12 @@ metadata:
   # Deployment name
   name: reddy-nginx
 
+  # Kubernetes namespace
+  namespace: dev
+
 spec:
   # Number of pod replicas
-  replicas: 2
+  replicas: 1
 
   # Deployment uses this label selector
   selector:
@@ -35,6 +38,9 @@ spec:
 
         # Docker image used by Kubernetes
         image: reddy-nginx:v6
+
+        # Pull policy
+        imagePullPolicy: IfNotPresent
 
         # Container exposed ports
         ports:

@@ -8,6 +8,9 @@ metadata:
   # Service name
   name: reddy-nginx-service
 
+  # PROD namespace
+  namespace: prod
+
 spec:
 
   # Expose service outside cluster
@@ -25,5 +28,5 @@ spec:
     # Forward traffic to container port
     targetPort: 80
 
-    # Fixed external node port
-    nodePort: 30080
+    # PROD NodePort
+    nodePort: 30083

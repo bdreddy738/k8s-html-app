@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+
+metadata:
+  name: reddy-nginx-ingress
+
+spec:
+  ingressClassName: nginx
+
+  rules:
+  - host: reddy.local
+
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+
+        backend:
+          service:
+            name: reddy-nginx-service
+
+            port:
+              number: 80
