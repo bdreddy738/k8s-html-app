@@ -8,7 +8,7 @@ spec:
   ingressClassName: nginx
 
   rules:
-  - host: reddy.local
+  - host: host: prod.reddy.local
 
     http:
       paths:
