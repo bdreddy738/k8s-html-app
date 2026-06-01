@@ -9,7 +9,7 @@ metadata:
   name: reddy-nginx
 
   # Kubernetes namespace
-  namespace: qa
+  namespace: uat
 
 spec:
   # Number of pod replicas
@@ -37,7 +37,7 @@ spec:
       - name: reddy-nginx
 
         # Docker image used by Kubernetes
-        image: reddy-nginx:v6
+        image: reddy-nginx-uat:v1
 
         # Pull image only if not already present
         imagePullPolicy: IfNotPresent
